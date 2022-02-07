@@ -1,0 +1,27 @@
+1) Is the string "ababbaba" in the language? 
+
+?- accept([a, b, a, b, b, a, b, a]).
+true .
+
+Yes, that string is in the language.
+
+
+2) Is the string "bbaaaaaa" in the language?
+
+?- accept([b, b, a, a, a, a, a, a]).
+false.
+
+No, that string is not in the language.
+
+
+3) Is the empty string in the language?
+
+?- accept([]).                       
+false.
+
+No, the empty string is not in the language. 
+
+
+4) Describe the language of this DFA either in plain English or as a regex.
+
+This DFA starts at Q0, and transitions to end state q1 through a, and end state q3 through b. Once in state q1, a can be called to stay in the end state. If b is called, it will go to q2 which is not an end state. q2 can get back to q1 through a, causing it to go back to the accept state. On q3, a can be called to get it to q4, which is not an end state. q4 can return to end state q3 through b. 

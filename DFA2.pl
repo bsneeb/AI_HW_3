@@ -20,8 +20,37 @@
 % q_0 in Q = start state
 % F = set of accept states
 
-d_hat(Q_0, [], [Q_0]).
+% Transition Functions:
+d(0, a, 1).
+d(0, b, 3).
+d(1, a, 1).
+d(1, b, 2).
+d(2, b, 2).
+d(2, a, 1).
+d(3, b, 3).
+d(3, a, 4).
+d(4, b, 3).
 
-d_hat(Q_0, [X | Xs], [Q_0 | Qs]) :-
-    d(Q_0, X, Q_n),
-    d_hat(Q_n, Xs, Qs).
+% Start and end states
+start(0).
+end(1).
+end(3).
+
+% Call accept([ ... ]) to test finite state machine.
+% Starts at 0, end states ate 1 or 3.
+accept(Q) :-
+    start(S),
+    d_hat(S, Q).
+
+
+% d_hat is the transitions state. 
+d_hat(X, [A|B]) :-
+    d(X, A, Y),
+    d_hat(Y, B).
+
+% Once list is empty, see if it is an ending state or not
+d_hat(X, []) :-
+    end(X).
+
+
+

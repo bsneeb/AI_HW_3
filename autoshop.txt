@@ -1,0 +1,15 @@
+The one and only solution is:
+
+Bay:          1   2   3   4   5
+---------------------------------
+Mechanic:   [ 1,  2,  3,  5,  4 ]
+Car:        [ 3,  5,  2,  4,  1 ]
+
+This checks out because:
+- Shep can work in bay 1 on Fords
+- Mona can work in bay 2 on Toyotas
+- Desmond can work in bay 3 on Fords
+- Wim can work in bay 4 on Hondas
+- Thelma can work in bay 5 on Audis
+- Mona and Wim do not work next to each other
+- Desmond and Shep do not work next to each other
